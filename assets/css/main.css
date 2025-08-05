@@ -1557,6 +1557,22 @@ input, select, textarea {
 
 	form ul.actions {
 		margin-top: 0;
+  		display: flex;
+  		gap: 10px;          /* space between buttons */
+  		padding-left: 0;    /* remove default ul padding */
+  		margin: 0;          /* remove default ul margin */
+  		flex-wrap: nowrap;  /* prevent wrapping on small screens */
+  		justify-content: center; /* center the buttons horizontally */
+  		align-items: center; /* vertically align buttons */
+	}
+
+	form ul.actions li {
+  		margin: 0;          /* remove extra margin */
+	}
+
+	form ul.actions li input {
+  		width: auto;        /* allow buttons to size to their content */
+  		min-width: 100px;   /* optional: minimum width for buttons */
 	}
 
 	form ::-webkit-input-placeholder {
@@ -1582,6 +1598,13 @@ input, select, textarea {
 
 	form ::-moz-focus-inner {
 		border: 0;
+	}
+
+	.form-wrapper {
+  		max-width: 600px;       /* limit width */
+  		margin: 0 auto;         /* center horizontally */
+ 		padding: 1em;           /* optional padding */
+ 		box-sizing: border-box; /* ensure padding doesn’t overflow */
 	}
 
 /* Image */
@@ -1621,6 +1644,29 @@ input, select, textarea {
 			margin: 0 0 2em 0;
 		}
 
+			/* Default: full size inside container */
+			.image.featured img {
+  			max-width: 100%;
+  			height: auto;
+  			display: block;
+  			margin: 0 auto;
+			}
+
+			/* Tablet (≤1024px): shrink a bit */
+			@media screen and (max-width: 1024px) {
+			  .image.featured img {
+			    max-width: 80%;
+				  }
+			}
+
+			/* Phone (≤600px): shrink more */
+			@media screen and (max-width: 600px) {
+  				.image.featured img {
+			    max-width: 60%;
+				  }
+			}
+
+
 /* Button */
 
 	input[type="button"],
@@ -1655,7 +1701,7 @@ input, select, textarea {
 		input[type="reset"]:hover,
 		button:hover,
 		.button:hover {
-			background-color: #f98780;
+			background-color: #AECDE1;
 		}
 
 		input[type="button"].large,
@@ -1681,7 +1727,7 @@ input, select, textarea {
 			input[type="reset"].style1:hover,
 			button.style1:hover,
 			.button.style1:hover {
-				background-color: #f98780;
+				background-color: #AECDE1;
 			}
 
 			input[type="button"].style1:active,
@@ -2038,6 +2084,11 @@ input, select, textarea {
 				border: solid 3px #fff;
 			}
 
+			.wrapper.style3 .image.no-border {
+  			border: none !important;
+			}
+
+
 /* Page Wrapper */
 
 	#page-wrapper > section {
@@ -2105,7 +2156,50 @@ input, select, textarea {
 			display: block;
 			letter-spacing: 0.2em;
 			font-size: 1.1em;
+  			line-height: 1.5;
+  			text-align: center;
+  			max-width: 600px;      /* optional max width for readability */
+  			margin: 0.5em auto 0;  /* center with some top margin */
+}
 		}
+
+			/* Tablets */
+			@media screen and (max-width: 768px) {
+  				#logo p {
+    			font-size: 1.1rem;
+    			max-width: 90%;
+  				}
+			}
+
+			/* Phones */
+			@media screen and (max-width: 480px) {
+  				#logo p {
+    			font-size: 0.75rem;
+    			max-width: 90%;
+  				}
+			}
+
+	/* Make image responsive */
+			.logo-img {
+				width: 60%;
+				height: auto;
+				max-width: 100%;
+				}
+
+	/* Adjust logo image size for medium screens */
+			@media (max-width: 768px) {
+			.logo-img {
+			width: 100%;
+				}
+		}		
+
+	/* Adjust logo image size for small screens */
+			@media (max-width: 480px) {
+			.logo-img {
+			width: 100%;
+				}
+		}
+
 
 /* Nav */
 
